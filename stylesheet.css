@@ -29,6 +29,6 @@
     style : "list-style-type:none";
 }
 
-#list {
-
+.checkedList{
+    text-decoration:line-through;
 }
