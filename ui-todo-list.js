@@ -1,25 +1,41 @@
-//Create adiv to contain list of tasks
-var listDiv = document.createElement("div");
-listDiv.id = "to-do-list";
+    //Create a div to contain list of tasks
+    var toDoList = document.createElement("div");
+    toDoList.id = "to-do-list";
+    var toDoTask = document.createElement('ul'); 
 
-//onclick of add
-function addToList(){
+    //Add Listbox in the div along with UL element
+    window.onload = function (){
 
-    var mainDiv = document.getElementById('list');
-    mainDiv.appendChild(listDiv);
+        var mainDiv = document.getElementById('app');
+        mainDiv.appendChild(toDoList);
+        toDoTask.id = 'to-do-task';
+        toDoList.appendChild(toDoTask);
+    }
+    var chkBoxID = 0;
+    
+    //onclick of add
+    function addToList() {
 
-    var chkList = document.createElement('ul'); 
-    chkList.id = 'to-do-task';
-    listDiv.appendChild(chkList);
+        //create new List element
+        var listElement = document.createElement('li');
 
-    var listElement = document.createElement('li');
+        //define properties for Input tag chklist
+        var chkBoxList = document.createElement("input");
+        chkBoxList.type = 'checkbox';
+        chkBoxList.id="chk"+chkBoxID;
+        chkBoxID++;
+        chkBoxList.addEventListener('change', crossout);
+        //define value for the checkbox
+        var chklistVal = document.createTextNode(document.getElementById('txtAdd').value);  
 
-    var chkBoxList = document.createElement("input");
-    chkBoxList.type ='checkbox';
-    chkBoxList.id="chk1";
-    var chklistVal = document.createTextNode(document.getElementById('txtAdd').value);  
-   
-    listDiv.appendChild(listElement);
-    listElement.appendChild(chkBoxList);
-    listElement.appendChild(chklistVal);
- }
+        //append nodes to the ul list
+        toDoTask.appendChild(listElement);
+        alert("li added");
+        listElement.appendChild(chkBoxList);
+        listElement.appendChild(chklistVal);
+    }
+
+    function crossout() {
+        var selected = this.id;
+        console.log(selected + ":" + );
+    }
