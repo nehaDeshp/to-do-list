@@ -4,16 +4,17 @@
     var toDoList = document.createElement("div");
     toDoList.id = "to-do-list";
     var toDoTask = document.createElement('ul'); 
-	
-
+    var txtBoxValidation = document.createElement("div");
+    txtBoxValidation.className="validationMessage";
+    var mainDiv;
     //Add Listbox in the div along with UL element
     window.onload = function (){
 
-        var mainDiv = document.getElementById('app');
+        mainDiv = document.getElementById('app');
+        mainDiv.appendChild(txtBoxValidation);
         mainDiv.appendChild(toDoList);
         toDoTask.id = 'to-do-task';
         toDoList.appendChild(toDoTask);
-        console.log(document.getElementById('chk').title);
     }
     var chkBoxID = 0;
     
@@ -22,7 +23,7 @@
 
         //create new List element
         var listElement = document.createElement('li');
-
+        listElement.id="myList";
         //define properties for Input tag chklist
         var chkBoxList = document.createElement("input");
         chkBoxList.type = 'checkbox';
@@ -33,17 +34,17 @@
         var chklistVal = document.createTextNode(document.getElementById('txtAdd').value);
         var label1=document.createElement("label");
         label1.appendChild(chklistVal);
-
+    
         //create checkListTask
         listElement.appendChild(chkBoxList);
-		listElement.appendChild(label1);
-       
+        listElement.appendChild(label1);
         //append nodes to the ul list
         toDoTask.appendChild(listElement);
-        chkBoxList.onchange = function(){
-           label1.style="text-decoration-line: line-through;";
-
-       }
-     
+        chkBoxList.onclick = function(){
+            if(chkBoxList.checked)
+                label1.style="text-decoration-line: line-through;";
+            else
+                label1.style="tetext-decoration-line: none";
+        }
     }
    
