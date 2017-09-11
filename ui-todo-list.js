@@ -4,9 +4,7 @@
     var toDoList = document.createElement("div");
     toDoList.id = "to-do-list";
     var toDoTask = document.createElement('ul'); 
-
-    //create new List element
-    var listElement = document.createElement('li');
+	
 
     //Add Listbox in the div along with UL element
     window.onload = function (){
@@ -15,50 +13,37 @@
         mainDiv.appendChild(toDoList);
         toDoTask.id = 'to-do-task';
         toDoList.appendChild(toDoTask);
+        console.log(document.getElementById('chk').title);
     }
     var chkBoxID = 0;
     
     //onclick of add
     function addToList() {
 
+        //create new List element
+        var listElement = document.createElement('li');
 
         //define properties for Input tag chklist
         var chkBoxList = document.createElement("input");
         chkBoxList.type = 'checkbox';
         chkBoxList.id = "chk" + chkBoxID;
         chkBoxID++;
-        chkBoxList.addEventListener('change', function (ev) {
-
-            crossout(ev);
-        });
 
         //define value for the checkbox
         var chklistVal = document.createTextNode(document.getElementById('txtAdd').value);
+        var label1=document.createElement("label");
+        label1.appendChild(chklistVal);
 
+        //create checkListTask
+        listElement.appendChild(chkBoxList);
+		listElement.appendChild(label1);
+       
         //append nodes to the ul list
         toDoTask.appendChild(listElement);
-        //alert("li added");
-        listElement.appendChild(chkBoxList);
-        listElement.appendChild(chklistVal);
-    }
-    /*function crossout() {
-        
-    }
+        chkBoxList.onchange = function(){
+           label1.style="text-decoration-line: line-through;";
 
-    /*function crossout() {
-        var selectedValue = document.querySelector('#' + this.id);
-        if (!selectedValue.getAttribute("checked")) {
-            
-            selectedValue.className = "checkedList";
-        }
-        else {
-            document.getElementByID(selectedValue.id).removeAttribute("class");
-        }
-        
-        console.log(selectedValue);
-        //var strike = document.createElement('strike');
-        //selectedValue.appendChild(strike);
-        selectedValue.parentElement.textContent.strike();
-        //strike.appendChild(document.createTextNode(selectedValue.parentElement.textContent));
-    }*/
+       }
+     
+    }
    

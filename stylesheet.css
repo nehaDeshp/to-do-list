@@ -1,34 +1,45 @@
 .hTemplate {
 
+    box-sizing: border-box;
     width : 100%;
-    height: 25%;
-    background-color: black;
+    height: 10%;
+    background-color: #70DED6;
     color: white;
     font-size:50px;
     text-align:center;
 }
 
 .fTemplate{
-
+    box-sizing: border-box;
     width : 100%;
     height: 5%;
-    background-color: black;
+    background-color: #70DED6;
     color: white;
     font-size:10px;
     text-align:center;
     float:center;
 }
 
-.txtAdd {
-    height : 10%;
-    width : 50%;  
-    margin:10px;
+#txtAdd {
+    width: 600px;
+    height: 40px;
+    border-style: outset;
+    border-color: blanchedalmond;
 }
 
+#addBtn{
+    height: 40px;
+    background-color: azure;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: cursive;
+}
 #to-do-task {
-    style : "list-style-type:none";
+    list-style-type: none;
 }
 
-.checkedList{
-    text-decoration:line-through;
+#app {
+    margin: 20px auto ;
+    text-align: center;
+    width: 800px;
 }
